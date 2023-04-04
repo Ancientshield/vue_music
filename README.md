@@ -1,6 +1,6 @@
 # vue_music
 
-This template should help get you started developing with Vue 3 in Vite.
+This is the project use Vue, Tailwind CSS and Pinia.
 
 ## Recommended IDE Setup
 
@@ -54,4 +54,11 @@ npm run test:e2e
 
 ```sh
 npm run lint
+```
+
+### Install Tailwind CSS
+Install tailwindcss and its peer dependencies, then generate your tailwind.config.js and postcss.config.js files.
+```
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
 ```
