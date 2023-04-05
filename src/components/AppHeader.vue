@@ -9,7 +9,9 @@
         <ul class="flex flex-row mt-1">
           <!-- Navigation Links -->
           <li>
-            <a class="px-2 text-white" href="#">Login / Register</a>
+            <a class="px-2 text-white" href="#" @click.prevent="toggleAuthModal">
+              Login / Register
+            </a>
           </li>
           <li>
             <a class="px-2 text-white" href="#">Manage</a>
@@ -20,7 +22,21 @@
   </header>
 </template>
 <script>
+import { mapStores } from 'pinia';
+import useModalStore from '@/stores/modal.js';
+
 export default {
   name: 'AppHeader',
+  computed: {
+    ...mapStores(useModalStore),
+  },
+  methods: {
+    toggleAuthModal() {
+      // 因為在 modal.js，Pinia 的 defineStore() id 為 'modal'，
+      // 所以這裡的方法指向的物件被自動命名為 'modalStore'。
+      this.modalStore.isOpen = !this.modalStore.isOpen;
+      console.log(this.modalStore.isOpen);
+    },
+  },
 };
 </script>

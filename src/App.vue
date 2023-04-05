@@ -1,6 +1,6 @@
 <template>
   <!-- Header -->
-  <Header />
+  <app-header />
 
   <!-- Introduction -->
   <section class="mb-8 py-20 text-white text-center relative">
@@ -267,15 +267,17 @@
   </div>
 
   <!-- Auth Modal -->
-  <Auth />
+  <auth />
 </template>
 
 <script>
-import Header from '@/components/Header.vue';
+import AppHeader from '@/components/AppHeader.vue';
 import Auth from '@/components/Auth.vue';
+
+// 舊的寫法在 template 中，要用 html 小寫 <app-header />，不能用 <AppHeader>。
 export default {
   name: 'App',
-  cpmponnents: { Header, Auth },
+  components: { AppHeader, Auth },
 };
 </script>
 
