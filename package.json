@@ -12,6 +12,7 @@
   "dependencies": {
     "@jridgewell/sourcemap-codec": "^1.4.14",
     "pinia": "^2.0.32",
+    "vee-validate": "^4.8.4",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
   },
