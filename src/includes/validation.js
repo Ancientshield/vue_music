@@ -1,5 +1,13 @@
 import { Form as VeeForm, Field as VeeField, defineRule, ErrorMessage } from 'vee-validate';
-import { required, min, max, alpha_spaces as alphaSpaces, email } from '@vee-validate/rules';
+import {
+  required,
+  min,
+  max,
+  alpha_spaces as alphaSpaces,
+  email,
+  min_value as minVal,
+  max_value as maxVal,
+} from '@vee-validate/rules';
 
 // definedRule function allows us to register a rule globally.
 // This rule will be available to every validation from.
@@ -15,5 +23,7 @@ export default {
     defineRule('max', max);
     defineRule('alphaSpaces', alphaSpaces);
     defineRule('email', email);
+    defineRule('minVal', minVal);
+    defineRule('maxVal', maxVal);
   },
 };
