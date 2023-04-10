@@ -81,7 +81,7 @@
             </button>
           </form>
           <!-- Registration Form -->
-          <vee-form v-show="tab === 'register'" :validation-schema="schema">
+          <vee-form v-show="tab === 'register'" :validation-schema="schema" @submit="register">
             <!-- Name -->
             <div class="mb-3">
               <label class="inline-block mb-2">Name</label>
@@ -188,5 +188,10 @@ export default {
       modalVisibility: 'isOpen',
     }),
   },
+  methods:{
+    register(){
+      console.log(values);
+    }
+  }
 };
 </script>
