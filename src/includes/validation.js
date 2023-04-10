@@ -8,6 +8,7 @@ import {
   min_value as minVal,
   max_value as maxVal,
   confirmed,
+  not_one_of as excluded,
 } from '@vee-validate/rules';
 
 // definedRule function allows us to register a rule globally.
@@ -27,5 +28,6 @@ export default {
     defineRule('minVal', minVal);
     defineRule('maxVal', maxVal);
     defineRule('confirmed', confirmed);
+    defineRule('excluded', excluded);
   },
 };

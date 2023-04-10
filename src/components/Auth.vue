@@ -148,8 +148,9 @@
                 <option value="Mexico">Mexico</option>
                 <option value="Germany">Germany</option>
                 <option value="Antarctica">Antarctica</option>
-                <ErrorMessage class="text-red-600" name="country" />
               </vee-field>
+              <!-- ErrorMessage 要放在 vee-field 標籤外面！！！ -->
+              <ErrorMessage class="text-red-600" name="country" />
             </div>
             <!-- TOS -->
             <div class="mb-3 pl-6">
@@ -189,7 +190,7 @@ export default {
         email: 'required|min:3|max:100|email',
         age: 'required|minVal:18|maxVal:100',
         password: 'required|min:3|max:100',
-        confirm_password: 'confirmed:@password',
+        confirm_password: 'required|confirmed:@password',
         country: 'required|excluded:Antarctica',
         tos: 'required',
       },
