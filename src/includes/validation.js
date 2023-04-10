@@ -7,6 +7,7 @@ import {
   email,
   min_value as minVal,
   max_value as maxVal,
+  confirmed,
 } from '@vee-validate/rules';
 
 // definedRule function allows us to register a rule globally.
@@ -25,5 +26,6 @@ export default {
     defineRule('email', email);
     defineRule('minVal', minVal);
     defineRule('maxVal', maxVal);
+    defineRule('confirmed', confirmed);
   },
 };
