@@ -203,7 +203,7 @@ export default {
     }),
   },
   methods: {
-    register() {
+    register(values) {
       console.log(values);
     },
   },
