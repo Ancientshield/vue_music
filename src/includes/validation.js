@@ -1,9 +1,10 @@
-import { 
+import {
   Form as VeeForm,
   Field as VeeField,
-  defineRule, 
+  defineRule,
   ErrorMessage,
-  configure } from 'vee-validate';
+  configure,
+} from 'vee-validate';
 import {
   required,
   min,
@@ -22,7 +23,7 @@ import {
 export default {
   install(app) {
     app.component('VeeForm', VeeForm);
-    app.component('VeeField', VeeField); 
+    app.component('VeeField', VeeField);
     app.component('ErrorMessage', ErrorMessage);
 
     defineRule('required', required);
@@ -54,7 +55,9 @@ export default {
           tos: `You must accept the Terms of Service.`,
         };
 
-        const message = messages[ctx.rule.name] ? messages[ctx.rule.name] : `The field ${ctx.field} is invalid.`;
+        const message = messages[ctx.rule.name]
+          ? messages[ctx.rule.name]
+          : `The field ${ctx.field} is invalid.`;
         return message;
       },
     });
