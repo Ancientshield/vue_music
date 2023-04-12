@@ -39,7 +39,7 @@ export default {
     defineRule('country_excluded', excluded);
 
     configure({
-      // ctx = context
+      // ctx 是 context 的縮寫
       generateMessage: (ctx) => {
         const messages = {
           required: `The field ${ctx.field} is required.`,
@@ -60,6 +60,10 @@ export default {
           : `The field ${ctx.field} is invalid.`;
         return message;
       },
+      validateOnBlur: true,
+      validatiteOnChange: true,
+      validationOnInput: false,
+      validateOnModelUpdate: true,
     });
   },
 };
