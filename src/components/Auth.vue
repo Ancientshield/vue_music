@@ -233,9 +233,9 @@ export default {
       this.reg_show_alert = true;
       this.reg_in_submission = true;
       this.reg_alert_variant = 'bg-blue-500';
-      this.reg_alert_msg = 'Pleasewait, your account is being created.';
+      this.reg_alert_msg = 'Please wait, your account is being created.';
 
-      this.reg_alert_bariant = 'bg-green-500';
+      this.reg_alert_variant = 'bg-green-500';
       this.reg_alert_msg = 'success, your accout has been created.';
       console.log(values);
     },
