@@ -204,10 +204,10 @@ export default {
     return {
       tab: 'login',
       schema: {
-        name: 'required|min:3|max:100|alpha_spaces',
+        name: 'required|min:3|max:100|alphaSpaces',
         email: 'required|min:3|max:100|email',
         age: 'required|minVal:18|maxVal:100',
-        password: 'required|min:9|max:100|excluded:password',
+        password: 'required|min:8|max:100|excluded:password',
         confirm_password: 'passwords_mismatch:@password',
         country: 'required|country_excluded:Antarctica',
         tos: 'tos',
@@ -234,7 +234,6 @@ export default {
       this.reg_in_submission = true;
       this.reg_alert_variant = 'bg-blue-500';
       this.reg_alert_msg = 'Please wait, your account is being created.';
-
       this.reg_alert_variant = 'bg-green-500';
       this.reg_alert_msg = 'success, your accout has been created.';
       console.log(values);
