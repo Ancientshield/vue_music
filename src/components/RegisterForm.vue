@@ -150,8 +150,7 @@ export default {
 
       this.reg_alert_variant = 'bg-green-500';
       this.reg_alert_msg = 'success, your accout has been created.';
-
-      this.userLoggedIn = true;
+      window.location.reload();
     },
   },
 };
