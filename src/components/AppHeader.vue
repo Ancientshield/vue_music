@@ -4,7 +4,7 @@
       <!-- App Name -->
       <router-link
         class="text-white font-bold uppercase text-2xl mr-4"
-        to="/"
+        :to="{ name: 'home' }"
         exact-active-class="no-active"
       >
         Music
