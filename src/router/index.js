@@ -19,6 +19,10 @@ const routes = [
     path: '/manage-music',
     component: Manage,
   },
+  {
+    path: '/manage',
+    redirect: { name: 'manage' },
+  },
 ];
 
 const router = createRouter({
