@@ -16,14 +16,14 @@ const routes = [
   },
   {
     name: 'manage',
-    alias: 'manage',
+    // alias: 'manage',
     path: '/manage-music',
     component: Manage,
   },
-  // {
-  //   path: '/manage',
-  //   redirect: { name: 'manage' },
-  // },
+  {
+    path: '/manage',
+    redirect: { name: 'manage' },
+  },
   {
     path: '/:catchAll(.*)*',
     redirect: { name: 'home' },
