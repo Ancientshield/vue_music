@@ -135,3 +135,12 @@
     </div>
   </section>
 </template>
+<script>
+export default {
+  name: 'manage',
+  BeforeRouteEnter(to, from, next) {
+    console.log('beforeRouteEnter Guard');
+    next();
+  },
+};
+</script>
