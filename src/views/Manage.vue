@@ -136,9 +136,16 @@
   </section>
 </template>
 <script>
+import useUserStore from '../stores/user.js';
 export default {
   name: 'manage',
   BeforeRouteEnter(to, from, next) {
+    const store = useUserStore();
+    if (store.userLoggedIn) {
+      next();
+    } else {
+      next({ name: 'home' });
+    }
     console.log('beforeRouteEnter Guard');
     next();
   },
