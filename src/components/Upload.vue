@@ -53,6 +53,7 @@ export default {
     };
   },
   methods: {
+    // 關閉 drop 動作，停止 hover 作動，讓 drogbox 恢復原本顏色
     upload() {
       this.is_dragover = false;
     },
