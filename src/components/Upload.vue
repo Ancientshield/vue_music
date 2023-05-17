@@ -15,7 +15,7 @@
         @dragover.prevent.stop="is_dragover = true"
         @dragenter.prevent.stop="is_dragover = true"
         @dragleave.prevent.stop="is_dragover = false"
-        @drop.prevent.stop="upload"
+        @drop.prevent.stop="upload($event)"
       >
         <h5>Drop your files here</h5>
       </div>
@@ -54,8 +54,20 @@ export default {
   },
   methods: {
     // 關閉 drop 動作，停止 hover 作動，讓 drogbox 恢復原本顏色
-    upload() {
+    upload($event) {
       this.is_dragover = false;
+      // 必須將 dataTransfer 從 $event 解構賦值，才能 console.log() 出來
+      // const { files } = $event.dataTransfer;
+
+      // 上傳到 firebase
+      const files = [...$event.dataTransfer.files];
+
+      files.forEach(() => {
+        if (files.type !== 'audio/mpeg') {
+        }
+      });
+
+      console.log(files);
     },
   },
 };
