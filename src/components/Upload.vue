@@ -45,6 +45,8 @@
   </div>
 </template>
 <script>
+import { storage } from '../includes/firebase.js';
+
 export default {
   name: 'Upload',
   data() {
@@ -62,10 +64,14 @@ export default {
       // 上傳到 firebase
       const files = [...$event.dataTransfer.files];
 
-      files.forEach(() => {
-        if (files.type !== 'audio/mpeg') {
+      files.forEach((file) => {
+        // 檢查陣列內每個 item 是否為音樂編碼檔案
+        if (file.type !== 'audio/mpeg') {
           return;
         }
+        const storageRef = storage.ref();
+        const songsRef = storageRef.child(`songs/${file.name}`);
+        songsRef.put(file);
       });
 
       console.log(files);
