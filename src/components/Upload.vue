@@ -29,7 +29,7 @@
           <div
             class="transition-all progress-bar bg-blue-400"
             :class="'bg-blue-400'"
-            :style="{ width: `${upload.current_progress}%` }"
+            :style="{ width: upload.current_progress + '%' }"
           ></div>
         </div>
       </div>
@@ -65,7 +65,6 @@ export default {
         const storageRef = storage.ref();
         const songsRef = storageRef.child(`songs/${file.name}`);
 
-        // https://firebase.google.com/docs/storage/web/upload-files
         const task = songsRef.put(file);
 
         const uploadIndex =
@@ -75,7 +74,8 @@ export default {
             name: file.name,
           }) - 1;
         task.on('state_changed', (snapshot) => {
-          const progress = (snapshot.bytesTransferred / snapshot.totaBytes) * 100;
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          this.uploads[uploadIndex].current_progress = progress;
         });
       });
 
