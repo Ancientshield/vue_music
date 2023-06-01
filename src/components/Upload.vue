@@ -39,7 +39,12 @@
   </div>
 </template>
 <script>
-import { storage } from '../includes/firebase.js';
+import {
+  storage,
+  auth,
+  songsCollection,
+  // some
+} from '../includes/firebase.js';
 
 export default {
   name: 'Upload',
@@ -90,7 +95,19 @@ export default {
             this.uploads[uploadIndex].text_class = 'text-red-400';
             console.log(error);
           },
-          () => {
+          async () => {
+            const song = {
+              uid: auth.currentUser.uid,
+              display_name: auth.currentUser.displayName,
+              original_name: task.snapshot.ref.name,
+              modified_name: task.snapshot.ref.name,
+              genre: '', // genre[ˈʒɑnrǝ] 來源為法語，文藝作品
+              comment_count: 0,
+            };
+
+            song.url = await task.snapshot.ref.getDownloadURL();
+            await songsCollection.add(song);
+
             this.uploads[uploadIndex].varient = 'bg-green-400';
             this.uploads[uploadIndex].icon = 'fas fa-check';
             this.uploads[uploadIndex].text_class = 'text-green-400';
