@@ -19,6 +19,7 @@
       >
         <h5>Drop your files here</h5>
       </div>
+      <input type="file" multiple @change="upload($event)" />
       <hr class="my-6" />
       <!-- Progess Bars -->
       <div class="mb-4" v-for="upload in uploads" :key="upload.name">
@@ -62,7 +63,7 @@ export default {
       // const { files } = $event.dataTransfer;
 
       // 上傳到 firebase
-      const files = [...$event.dataTransfer.files];
+      const files = $event.dataTransfer ? [...$event.dataTransfer.files] : [...$event.target.files];
 
       files.forEach((file) => {
         // 檢查陣列內每個 item 是否為音樂編碼檔案
