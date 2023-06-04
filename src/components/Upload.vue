@@ -124,10 +124,10 @@ export default {
       });
     },
   },
-  // beforeUnmount() {
-  //   this.uploads.forEach((upload) => {
-  //     upload.task.cancel();
-  //   });
-  // },
+  beforeUnmount() {
+    this.uploads.forEach((upload) => {
+      upload.task.cancel();
+    });
+  },
 };
 </script>
