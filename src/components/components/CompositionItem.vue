@@ -36,6 +36,6 @@
 
 <script>
 export default {
-  name: 'compositionItem',
+  name: 'CompositionItem',
 };
 </script>
