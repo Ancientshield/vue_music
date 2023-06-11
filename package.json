@@ -1,39 +1,39 @@
 {
-  "name": "vue_music",
+  "name": "music",
   "version": "0.0.0",
-  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "preview": "vite preview --port 4173",
+    "test:unit": "vitest --environment jsdom",
+    "test:e2e": "start-server-and-test preview http://localhost:4173/ 'cypress open --e2e'",
+    "test:e2e:ci": "start-server-and-test preview http://localhost:4173/ 'cypress run --e2e'",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "@jridgewell/sourcemap-codec": "^1.4.14",
-    "@vee-validate/rules": "^4.8.4",
+    "@vee-validate/rules": "^4.6.2",
     "firebase": "^8.10.1",
-    "pinia": "^2.0.32",
-    "vee-validate": "^4.8.4",
-    "vue": "^3.2.47",
-    "vue-router": "^4.1.6"
+    "pinia": "^2.0.16",
+    "vee-validate": "^4.6.2",
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.2"
   },
   "devDependencies": {
-    "@rushstack/eslint-patch": "^1.2.0",
-    "@vitejs/plugin-vue": "^4.0.0",
-    "@vue/eslint-config-prettier": "^7.1.0",
-    "@vue/test-utils": "^2.3.0",
-    "autoprefixer": "^10.4.14",
-    "cypress": "^12.7.0",
-    "eslint": "^8.34.0",
+    "@rushstack/eslint-patch": "^1.1.0",
+    "@vitejs/plugin-vue": "^3.0.1",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/test-utils": "^2.0.2",
+    "autoprefixer": "^10.4.7",
+    "cypress": "^10.3.0",
+    "eslint": "^8.5.0",
     "eslint-plugin-cypress": "^2.12.1",
-    "eslint-plugin-vue": "^9.9.0",
-    "jsdom": "^21.1.0",
-    "postcss": "^8.4.21",
-    "prettier": "^2.8.4",
-    "start-server-and-test": "^2.0.0",
-    "tailwindcss": "^3.3.1",
-    "vite": "^4.1.4",
-    "vitest": "^0.29.1"
+    "eslint-plugin-vue": "^9.0.0",
+    "jsdom": "^20.0.0",
+    "postcss": "^8.4.14",
+    "prettier": "^2.5.1",
+    "start-server-and-test": "^1.14.0",
+    "tailwindcss": "^3.1.6",
+    "vite": "^3.0.1",
+    "vitest": "^0.18.1"
   }
 }

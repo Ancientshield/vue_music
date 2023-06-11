@@ -14,29 +14,31 @@
         <i class="fa fa-pencil-alt"></i>
       </button>
     </div>
-    <div>
-      <div v-show="showForm">
-        <vee-form>
-          <div class="mb-3">
-            <label class="inline-block mb-2">Song Title</label>
-            <input
-              type="text"
-              class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-              placeholder="Enter Song Title"
-            />
-          </div>
-          <div class="mb-3">
-            <label class="inline-block mb-2">Genre</label>
-            <input
-              type="text"
-              class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-              placeholder="Enter Genre"
-            />
-          </div>
-          <button type="submit" class="py-1.5 px-3 rounded text-white bg-green-600">Submit</button>
-          <button type="button" class="py-1.5 px-3 rounded text-white bg-gray-600">Go Back</button>
-        </vee-form>
-      </div>
+    <div v-show="showForm">
+      <vee-form :validation-schema="schema" :initial-values="song" @submit="edit">
+        <div class="mb-3">
+          <label class="inline-block mb-2">Song Title</label>
+          <vee-field
+            name="modified_name"
+            type="text"
+            class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
+            placeholder="Enter Song Title"
+          />
+          <ErrorMessage name="modified_name" class="text-red-600" />
+        </div>
+        <div class="mb-3">
+          <label class="inline-block mb-2">Genre</label>
+          <vee-field
+            name="genre"
+            type="text"
+            class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
+            placeholder="Enter Genre"
+          />
+          <ErrorMessage name="genre" class="text-red-600" />
+        </div>
+        <button type="submit" class="py-1.5 px-3 rounded text-white bg-green-600">Submit</button>
+        <button type="button" class="py-1.5 px-3 rounded text-white bg-gray-600">Go Back</button>
+      </vee-form>
     </div>
   </div>
 </template>
@@ -53,7 +55,17 @@ export default {
   data() {
     return {
       showForm: false,
+      schema: {
+        modified_name: 'required',
+        // 影片錯誤示範，不能用 alpha_spaces，請用 camelCase
+        genre: 'alphaSpaces',
+      },
     };
+  },
+  methods: {
+    edit() {
+      console.log('Song Edited');
+    },
   },
 };
 </script>
