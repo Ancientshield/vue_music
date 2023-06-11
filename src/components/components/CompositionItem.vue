@@ -18,7 +18,7 @@
     </div>
     <div>
       <div v-show="showForm">
-        <form>
+        <vee-form>
           <div class="mb-3">
             <label class="inline-block mb-2">Song Title</label>
             <input
@@ -37,7 +37,7 @@
           </div>
           <button type="submit" class="py-1.5 px-3 rounded text-white bg-green-600">Submit</button>
           <button type="button" class="py-1.5 px-3 rounded text-white bg-gray-600">Go Back</button>
-        </form>
+        </vee-form>
       </div>
     </div>
   </div>
