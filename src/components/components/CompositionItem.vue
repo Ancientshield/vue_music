@@ -52,5 +52,10 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      showForm: false,
+    };
+  },
 };
 </script>
