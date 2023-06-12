@@ -15,6 +15,13 @@
       </button>
     </div>
     <div v-show="showForm">
+      <div
+        class="text-white text-center font-bold p-4 mb-4"
+        v-if="show_alert"
+        :class="alert_variant"
+      >
+        {{ alert_message }}
+      </div>
       <vee-form :validation-schema="schema" :initial-values="song" @submit="edit">
         <div class="mb-3">
           <label class="inline-block mb-2">Song Title</label>
@@ -36,8 +43,21 @@
           />
           <ErrorMessage name="genre" class="text-red-600" />
         </div>
-        <button type="submit" class="py-1.5 px-3 rounded text-white bg-green-600">Submit</button>
-        <button type="button" class="py-1.5 px-3 rounded text-white bg-gray-600">Go Back</button>
+        <button
+          type="submit"
+          class="py-1.5 px-3 rounded text-white bg-green-600"
+          :disabled="in_submission"
+        >
+          Submit
+        </button>
+        <button
+          type="button"
+          class="py-1.5 px-3 rounded text-white bg-gray-600"
+          :disabled="in_submission"
+          @click.prevent="showForm = false"
+        >
+          Go Back
+        </button>
       </vee-form>
     </div>
   </div>
@@ -60,11 +80,18 @@ export default {
         // 影片錯誤示範，不能用 alpha_spaces，請用 camelCase
         genre: 'alphaSpaces',
       },
+      in_submission: false,
+      show_alert: false,
+      alert_variant: 'bg-blue-500',
+      alert_message: 'Please wait! Updating song info.',
     };
   },
   methods: {
     edit() {
-      console.log('Song Edited');
+      this.in_submission = true;
+      this.show_alert = true;
+      this.alert_variant = 'bg-blue-500';
+      this.alert_message = 'Please wait! Updating song info.';
     },
   },
 };
