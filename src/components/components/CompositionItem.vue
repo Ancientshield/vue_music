@@ -64,6 +64,8 @@
 </template>
 
 <script>
+import { songsCollection } from '../../includes/firebase.js';
+
 export default {
   name: 'CompositionItem',
   props: {
@@ -87,11 +89,24 @@ export default {
     };
   },
   methods: {
-    edit() {
+    async edit(values) {
       this.in_submission = true;
       this.show_alert = true;
       this.alert_variant = 'bg-blue-500';
       this.alert_message = 'Please wait! Updating song info.';
+
+      try {
+        await songsCollection.doc(this.song.docID).update(values);
+      } catch (error) {
+        this.in_submission = false;
+        this.alert_variant = 'bg-red-500';
+        this.alert_message = 'Somthing went wrong! Try again later';
+        return;
+      }
+
+      this.in_submission = false;
+      this.alert_variant = 'bg-green-500';
+      this.alert_message = 'Success!';
     },
   },
 };
