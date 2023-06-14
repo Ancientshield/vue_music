@@ -73,6 +73,14 @@ export default {
       type: Object,
       required: true,
     },
+    updateSong: {
+      type: Function,
+      required: true,
+    },
+    index: {
+      type: Number,
+      required: true,
+    },
   },
   data() {
     return {
@@ -103,6 +111,8 @@ export default {
         this.alert_message = 'Somthing went wrong! Try again later';
         return;
       }
+
+      this.updateSong(this.index, values);
 
       this.in_submission = false;
       this.alert_variant = 'bg-green-500';
