@@ -46,7 +46,7 @@ import {
   songsCollection,
   // some
 } from '../includes/firebase.js';
-ß
+
 export default {
   name: 'Upload',
   data() {
