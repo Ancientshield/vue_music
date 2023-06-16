@@ -55,6 +55,9 @@ export default {
       this.songs[i].modified_name = values.modified_name;
       this.songs[i].genre = values.genre;
     },
+    removeSong(i) {
+      this.songs.splice(i, 1);
+    },
     addSong(){
       const song = {
         ...document.data(),
@@ -62,8 +65,11 @@ export default {
       };
 
       this.songs.push(song);
-    }
+    },
   },
+  beforeRouteLeave (to, from, next) {
+    // ...
+  }
   // beforeRouteLeave(to, from, next) {
   //   this.$refs.upload.cancelUploads();
   //   next();
