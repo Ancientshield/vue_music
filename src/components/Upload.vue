@@ -92,7 +92,7 @@ export default {
             this.uploads[uploadIndex].current_progress = progress;
           },
           (error) => {
-            this.uploads[uploadIndex].varient = 'bg-red-400';
+            this.uploads[uploadIndex].variant = 'bg-red-400';
             this.uploads[uploadIndex].icon = 'fas fa-times';
             this.uploads[uploadIndex].text_class = 'text-red-400';
             console.log(error);
@@ -111,7 +111,7 @@ export default {
             const songSnapshot = await songRef.get();
             this.addSong(songSnapshot);
 
-            this.uploads[uploadIndex].varient = 'bg-green-400';
+            this.uploads[uploadIndex].variant = 'bg-green-400';
             this.uploads[uploadIndex].icon = 'fas fa-check';
             this.uploads[uploadIndex].text_class = 'text-green-400';
           },
