@@ -3,7 +3,7 @@
   <section class="container mx-auto mt-6">
     <div class="md:grid md:grid-cols-3 md:gap-4">
       <div class="col-span-1">
-        <app-upload />
+        <app-upload :addSong="addSong" />
         <!-- <app-upload ref="upload" /> -->
       </div>
       <div class="col-span-2">
@@ -47,20 +47,22 @@ export default {
   async created() {
     const snapshot = await songsCollection.where('uid', '==', auth.currentUser.uid).get();
 
-    snapshot.forEach((document) => {
+    snapshot.forEach(this.addSong);
+  },
+  props: ['addSong'],
+  methods: {
+    updateSong(i, values) {
+      this.songs[i].modified_name = values.modified_name;
+      this.songs[i].genre = values.genre;
+    },
+    addSong(){
       const song = {
         ...document.data(),
         docID: document.id,
       };
 
       this.songs.push(song);
-    });
-  },
-  methods: {
-    updateSong(i, values) {
-      this.songs[i].modified_name = values.modified_name;
-      this.songs[i].genre = values.genre;
-    },
+    }
   },
   // beforeRouteLeave(to, from, next) {
   //   this.$refs.upload.cancelUploads();

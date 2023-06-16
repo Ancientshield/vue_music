@@ -105,9 +105,10 @@ export default {
               genre: '', // genre[ˈʒɑnrǝ] 來源為法語，文藝作品
               comment_count: 0,
             };
-
             song.url = await task.snapshot.ref.getDownloadURL();
-            await songsCollection.add(song);
+            const songRef = await songsCollection.add(song);
+            const songSnapshot = await songRef.get();
+            this.addSong(songSnapshot);
 
             this.uploads[uploadIndex].varient = 'bg-green-400';
             this.uploads[uploadIndex].icon = 'fas fa-check';
