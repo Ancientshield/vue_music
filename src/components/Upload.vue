@@ -46,7 +46,7 @@ import {
   songsCollection,
   // some
 } from '../includes/firebase.js';
-
+ß
 export default {
   name: 'Upload',
   data() {
@@ -55,6 +55,7 @@ export default {
       uploads: [],
     };
   },
+  props: ['addSong'],
   methods: {
     // 關閉 drop 動作，停止 hover 作動，讓 drogbox 恢復原本顏色
     upload($event) {

@@ -20,6 +20,7 @@
               :song="song"
               :updateSong="updateSong"
               :index="i"
+              :updateUnsavedFlag="updateUnsavedFlag"
             />
           </div>
         </div>
@@ -42,6 +43,7 @@ export default {
   data() {
     return {
       songs: [],
+      unsaveFlag: false,
     };
   },
   async created() {
@@ -49,7 +51,6 @@ export default {
 
     snapshot.forEach(this.addSong);
   },
-  props: ['addSong'],
   methods: {
     updateSong(i, values) {
       this.songs[i].modified_name = values.modified_name;
@@ -66,6 +67,9 @@ export default {
 
       this.songs.push(song);
     },
+    updateUnsavedFlag(value){
+      this.unsaveFlag = value;
+    }
   },
   beforeRouteLeave (to, from, next) {
     // ...
