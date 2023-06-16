@@ -20,6 +20,7 @@
               :song="song"
               :updateSong="updateSong"
               :index="i"
+              :removeSong="removeSong"
               :updateUnsavedFlag="updateUnsavedFlag"
             />
           </div>
@@ -59,7 +60,7 @@ export default {
     removeSong(i) {
       this.songs.splice(i, 1);
     },
-    addSong(){
+    addSong(document) {
       const song = {
         ...document.data(),
         docID: document.id,
@@ -67,13 +68,13 @@ export default {
 
       this.songs.push(song);
     },
-    updateUnsavedFlag(value){
+    updateUnsavedFlag(value) {
       this.unsaveFlag = value;
-    }
+    },
   },
-  beforeRouteLeave (to, from, next) {
+  beforeRouteLeave(to, from, next) {
     // ...
-  }
+  },
   // beforeRouteLeave(to, from, next) {
   //   this.$refs.upload.cancelUploads();
   //   next();

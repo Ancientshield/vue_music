@@ -3,7 +3,7 @@
     <div v-show="!showForm">
       <h4 class="inline-block text-2xl font-bold">{{ song.modified_name }}</h4>
       <!-- first button is for deleting a song -->
-      <button 
+      <button
         class="ml-1 py-1 px-2 text-sm rounded text-white bg-red-600 float-right"
         @click.prevent="deleteSong"
       >
@@ -128,7 +128,7 @@ export default {
     async deleteSong() {
       const storageRef = storage.ref();
       const songRef = storageRef.child(`songs/${this.song.original_name}`);
-    
+
       await songRef.delete();
 
       await songsCollection.doc(this.song.docID).delete();

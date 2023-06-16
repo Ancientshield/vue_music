@@ -30,9 +30,9 @@
         <div class="flex h-4 overflow-hidden bg-gray-200 rounded">
           <!-- Inner Progress Bar -->
           <div
-            class="transition-all progress-bar bg-blue-400"
-            :class="'bg-blue-400'"
-            :style="{ width: upload.current_progress + '%' }"
+            :class="upload.variant"
+            class="transition-all progress-bar"
+            :style="{ width: `${upload.current_progress}%` }"
           ></div>
         </div>
       </div>
