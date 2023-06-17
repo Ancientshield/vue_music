@@ -44,7 +44,7 @@ export default {
   data() {
     return {
       songs: [],
-      unsaveFlag: false,
+      unsavedFlag: false,
     };
   },
   async created() {
@@ -69,11 +69,18 @@ export default {
       this.songs.push(song);
     },
     updateUnsavedFlag(value) {
-      this.unsaveFlag = value;
+      this.unsavedFlag = value;
     },
   },
   beforeRouteLeave(to, from, next) {
-    // ...
+    if (!this.unsavedFlag) {
+      next();
+    } else {
+      // 一定要加 no-restricted-globals❗️
+      // eslint-disable-next-line no-alert, no-restricted-globals
+      const leave = confirm('Your have unsaved changes. Are you sure you want to leave?');
+      next(leave);
+    }
   },
   // beforeRouteLeave(to, from, next) {
   //   this.$refs.upload.cancelUploads();
