@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: 'Song Item',
+  name: 'SongItem',
   props: ['song'],
 };
 </script>
