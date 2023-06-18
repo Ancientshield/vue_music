@@ -32,7 +32,7 @@
 <script>
 // import useUserStore from '../stores/user.js';
 import AppUpload from '../components/Upload.vue';
-import CompositionItem from '../components/components/CompositionItem.vue';
+import CompositionItem from '../components/CompositionItem.vue';
 import { songsCollection, auth } from '../includes/firebase.js';
 
 export default {
