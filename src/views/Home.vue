@@ -76,29 +76,22 @@ export default {
       }
     },
     async getSongs() {
-      if(this.pendingRequest){
+      if (this.pendingRequest) {
         return;
       }
-
       this.pendingRequest = true;
 
       let snapshots;
-      if(this.songs.length){
-        const lastDoc = await songsCollection
-        .doc(this.songs[this.songs.length -1].docID)
-        .get();
-        
+
+      if (this.songs.length) {
+        const lastDoc = await songsCollection.doc(this.songs[this.songs.length - 1].docID).get();
         snapshots = await songsCollection
-        .orderBy('modified_name')
-        .startAfter(lastDoc)
-        .limit(this.maxPerPage)
-        .get();
+          .orderBy('modified_name')
+          .startAfter(lastDoc)
+          .limit(this.maxPerPage)
+          .get();
       } else {
-        snapshots = await songsCollection
-        .orderBy('modified_name')
-        .startAfter(lastDoc)
-        .limit(this.maxPerPage)
-        .get();
+        snapshots = await songsCollection.orderBy('modified_name').limit(this.maxPerPage).get();
       }
 
       snapshots.forEach((document) => {
