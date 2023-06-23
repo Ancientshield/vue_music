@@ -156,6 +156,7 @@ export default {
       comment_show_alert: false,
       comment_alert_variant: 'bg-blue-500',
       comment_alert_message: 'Please wait! Your comment is being submitted',
+      comments: [],
     };
   },
   computed: {
@@ -170,6 +171,7 @@ export default {
     }
 
     this.song = docSnapshot.data();
+    this.getComments();
   },
   methods: {
     async addComment(values, { resetForm }) {
@@ -193,6 +195,18 @@ export default {
       this.comment_alert_message = 'Comment added!';
 
       resetForm();
+    },
+    async getComments() {
+      const snapshots = await commentsCollection.where('sid', '==', this.$.route.params.id).get();
+
+      this.comments = [];
+
+      snapshots.forEach((doc) => {
+        this.comments.push({
+          docID: doc.id,
+          ...doc().data(),
+        });
+      });
     },
   },
 };
