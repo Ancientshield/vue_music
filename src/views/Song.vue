@@ -64,77 +64,17 @@
   </section>
   <!-- Comments -->
   <ul class="container mx-auto">
-    <li class="p-6 bg-gray-50 border border-gray-200">
+    <li
+      class="p-6 bg-gray-50 border border-gray-200"
+      v-for="comment in comments"
+      :key="comment.docID"
+    >
       <!-- Comment Author -->
       <div class="mb-5">
-        <div class="font-bold">Elaine Dreyfuss</div>
-        <time>5 mins ago</time>
+        <div class="font-bold">{{ comment.name }}</div>
+        <time> {{ comment.datePosted }}</time>
       </div>
-
-      <p>
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium der doloremque
-        laudantium.
-      </p>
-    </li>
-    <li class="p-6 bg-gray-50 border border-gray-200">
-      <!-- Comment Author -->
-      <div class="mb-5">
-        <div class="font-bold">Elaine Dreyfuss</div>
-        <time>5 mins ago</time>
-      </div>
-
-      <p>
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium der doloremque
-        laudantium.
-      </p>
-    </li>
-    <li class="p-6 bg-gray-50 border border-gray-200">
-      <!-- Comment Author -->
-      <div class="mb-5">
-        <div class="font-bold">Elaine Dreyfuss</div>
-        <time>5 mins ago</time>
-      </div>
-
-      <p>
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium der doloremque
-        laudantium.
-      </p>
-    </li>
-    <li class="p-6 bg-gray-50 border border-gray-200">
-      <!-- Comment Author -->
-      <div class="mb-5">
-        <div class="font-bold">Elaine Dreyfuss</div>
-        <time>5 mins ago</time>
-      </div>
-
-      <p>
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium der doloremque
-        laudantium.
-      </p>
-    </li>
-    <li class="p-6 bg-gray-50 border border-gray-200">
-      <!-- Comment Author -->
-      <div class="mb-5">
-        <div class="font-bold">Elaine Dreyfuss</div>
-        <time>5 mins ago</time>
-      </div>
-
-      <p>
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium der doloremque
-        laudantium.
-      </p>
-    </li>
-    <li class="p-6 bg-gray-50 border border-gray-200">
-      <!-- Comment Author -->
-      <div class="mb-5">
-        <div class="font-bold">Elaine Dreyfuss</div>
-        <time>5 mins ago</time>
-      </div>
-
-      <p>
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium der doloremque
-        laudantium.
-      </p>
+      <p>{{ comment.content }}</p>
     </li>
   </ul>
 </template>
@@ -197,16 +137,16 @@ export default {
       resetForm();
     },
     async getComments() {
-      const snapshots = await commentsCollection.where('sid', '==', this.$.route.params.id).get();
+      const snapshots = await commentsCollection.where('sid', '==', this.$route.params.id).get();
 
       this.comments = [];
 
-      snapshots.forEach((doc) => {
+      snapshots.forEach((doc) => [
         this.comments.push({
           docID: doc.id,
-          ...doc().data(),
-        });
-      });
+          ...doc.data(),
+        }),
+      ]);
     },
   },
 };
