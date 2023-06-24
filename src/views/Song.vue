@@ -165,5 +165,17 @@ export default {
       ]);
     },
   },
+  watch: {
+    sort(newVal) {
+      this.$router.push({
+        // 這個 Object 與 router-link 的 to 屬性一樣
+        // name: 'home',
+        // 不過我們沒有要 redirect，而是要使用 query property
+        query: {
+          sort: newVal,
+        },
+      });
+    },
+  },
 };
 </script>
