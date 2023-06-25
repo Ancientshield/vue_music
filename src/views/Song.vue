@@ -124,6 +124,11 @@ export default {
       return;
     }
 
+    const { sort } = this.$route.query;
+
+    // 如果是 '1' or '2'，就是 '1' or '2'，否則就是 '1'
+    this.sort = sort == '1' || sort == '2' ? sort : '1';
+
     this.song = docSnapshot.data();
     this.getComments();
   },
@@ -167,6 +172,9 @@ export default {
   },
   watch: {
     sort(newVal) {
+      if (newVal == this.$route.query.sort) {
+        return;
+      }
       this.$router.push({
         // 這個 Object 與 router-link 的 to 屬性一樣
         // name: 'home',
