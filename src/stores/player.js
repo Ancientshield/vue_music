@@ -29,4 +29,13 @@ export default defineStore('player', {
       }
     },
   },
+  getters: {
+    playing: (state) => {
+      if (state.sound.playing) {
+        return state.sound.playing();
+      }
+
+      return false;
+    },
+  },
 });
