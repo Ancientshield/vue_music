@@ -5,6 +5,8 @@ export default defineStore('player', {
   state: () => ({
     currnet_song: {},
     sound: {},
+    seek: '00:00',
+    duration: '00:00',
   }),
   actions: {
     async newSong(song) {
