@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 import { Howl } from 'howler';
+import helpers from '../includes/helper.js';
 
 export default defineStore('player', {
   state: () => ({
@@ -21,7 +22,7 @@ export default defineStore('player', {
       this.sound.play();
 
       // event listener
-      this.sound.on('play',()=>{
+      this.sound.on('play', () => {
         // handle the event
         requestAnimationFrame(this.progress);
       });
@@ -37,16 +38,16 @@ export default defineStore('player', {
         this.sound.play();
       }
     },
-    progress(){
-      this.seek = this.sound.seek();
-      this.duration = this.sound.duration();
+    progress() {
+      this.seek = helpers.formatTime(this.sound.seek());
+      this.duration = helpers.formatTime(this.sound.duration());
 
       // actions 不是 recursive
       // 所以要不斷回調，就要確認是否正在 playing() 中
-      if(this.sound.playing()){
+      if (this.sound.playing()) {
         requestAnimationFrame(this.progress);
       }
-    }
+    },
   },
   getters: {
     playing: (state) => {
