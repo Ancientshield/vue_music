@@ -18,13 +18,16 @@
       <!-- Scrub Container  -->
       <div class="w-full h-2 rounded bg-gray-200 relative cursor-pointer">
         <!-- Player Ball -->
-        <span class="absolute -top-2.5 -ml-2.5 text-gray-800 text-lg" style="left: 50%">
+        <span
+          class="absolute -top-2.5 -ml-2.5 text-gray-800 text-lg"
+          :style="{ left: playerProgress }"
+        >
           <i class="fas fa-circle"></i>
         </span>
         <!-- Player Progress Bar-->
         <span
           class="block h-2 rounded bg-gradient-to-r from-green-500 to-green-400"
-          style="width: 50%"
+          :style="{ width: playerProgress }"
         ></span>
       </div>
       <!-- Duration -->

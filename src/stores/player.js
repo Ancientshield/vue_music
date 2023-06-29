@@ -42,6 +42,8 @@ export default defineStore('player', {
       this.seek = helpers.formatTime(this.sound.seek());
       this.duration = helpers.formatTime(this.sound.duration());
 
+      this.playerProgress = `${(this.sound.seek() / this.sound.duration()) * 100} `;
+
       // actions 不是 recursive
       // 所以要不斷回調，就要確認是否正在 playing() 中
       if (this.sound.playing()) {
