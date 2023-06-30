@@ -4,7 +4,7 @@ import helpers from '../includes/helper.js';
 
 export default defineStore('player', {
   state: () => ({
-    currnet_song: {},
+    current_song: {},
     sound: {},
     seek: '00:00',
     duration: '00:00',
@@ -12,11 +12,11 @@ export default defineStore('player', {
   }),
   actions: {
     async newSong(song) {
-      if(this.sound instanceof Howl){
+      if (this.sound instanceof Howl) {
         this.sound.unload();
       }
 
-      this.currnet_song = song;
+      this.current_song = song;
 
       this.sound = new Howl({
         src: [song.url],

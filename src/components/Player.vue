@@ -46,7 +46,7 @@ export default {
     ...mapActions(usePlayerStore, ['toggleAudio']),
   },
   computed: {
-    ...mapState(usePlayerStore, ['playing', 'duration', 'seek', 'playerProgress','currnet_song']),
+    ...mapState(usePlayerStore, ['playing', 'duration', 'seek', 'playerProgress', 'current_song']),
   },
 };
 </script>
