@@ -1,9 +1,9 @@
 <template>
   <div class="fixed bottom-0 left-0 bg-white px-4 py-2 w-full">
     <!-- Track Info -->
-    <div class="text-center">
-      <span class="song-title font-bold">Song Title</span> by
-      <span class="song-artist">Artist</span>
+    <div class="text-center" v-if="current_song.modified_name">
+      <span class="song-title font-bold">{{ current_song.modified_name }}</span> by
+      <span class="song-artist">{{ current_song.display_name }}</span>
     </div>
     <div class="flex flex-nowrap gap-4 items-center">
       <!-- Play/Pause Button -->
@@ -46,7 +46,7 @@ export default {
     ...mapActions(usePlayerStore, ['toggleAudio']),
   },
   computed: {
-    ...mapState(usePlayerStore, ['playing', 'duration', 'seek', 'playerProgress']),
+    ...mapState(usePlayerStore, ['playing', 'duration', 'seek', 'playerProgress','currnet_song']),
   },
 };
 </script>
