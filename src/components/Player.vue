@@ -16,7 +16,10 @@
       <!-- Current Position -->
       <div class="player-currenttime">{{ seek }}</div>
       <!-- Scrub Container  -->
-      <div class="w-full h-2 rounded bg-gray-200 relative cursor-pointer">
+      <div
+        @click.prevent="updateSeek"
+        class="w-full h-2 rounded bg-gray-200 relative cursor-pointer"
+      >
         <!-- Player Ball -->
         <span
           class="absolute -top-2.5 -ml-2.5 text-gray-800 text-lg"
@@ -31,7 +34,7 @@
         ></span>
       </div>
       <!-- Duration -->
-      <div class="player-duration">{{ playerProgress }}</div>
+      <div class="player-duration">{{ duration }}</div>
     </div>
   </div>
 </template>
@@ -43,7 +46,7 @@ import usePlayerStore from '../stores/player.js';
 export default {
   name: 'Player',
   methods: {
-    ...mapActions(usePlayerStore, ['toggleAudio']),
+    ...mapActions(usePlayerStore, ['toggleAudio', 'updateSeek']),
   },
   computed: {
     ...mapState(usePlayerStore, ['playing', 'duration', 'seek', 'playerProgress', 'current_song']),
