@@ -34,7 +34,7 @@
         ></span>
       </div>
       <!-- Duration -->
-      <div class="  ">{{ duration }}</div>
+      <div class="player-duration">{{ duration }}</div>
     </div>
   </div>
 </template>

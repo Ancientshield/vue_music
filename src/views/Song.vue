@@ -12,7 +12,7 @@
         type="button"
         class="z-50 h-24 w-24 text-3xl bg-white text-black rounded-full focus:outline-none"
       >
-        <i class="fas fa-play"></i>
+        <i class="fas" :class="{ 'fa-play': !playing, 'fa-pause': playing }"></i>
       </button>
       <div class="z-50 text-left ml-8">
         <!-- Song Info -->
@@ -109,6 +109,7 @@ export default {
   },
   computed: {
     ...mapState(useUserStore, ['userLoggedIn']),
+    ...mapState(usePlayerStore, ['playing']),
     sortedComments() {
       // 此時你會發現此寫法 ESLint 會報錯，因為 computed 不能改變 data properties.
       // return this.comments.sort();
