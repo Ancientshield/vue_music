@@ -29,7 +29,8 @@
         <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
           <span class="card-title">Songs</span>
           <!-- Icon -->
-          <i class="fa fa-headphones-alt float-right text-green-400 text-xl"></i>
+          <!-- 複製到 src/directives/icon.js -->
+          <!-- <i class="fa fa-headphones-alt float-right text-green-400 text-xl"></i> -->
         </div>
         <!-- Playlist -->
         <ol id="playlist">
