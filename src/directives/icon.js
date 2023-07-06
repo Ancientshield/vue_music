@@ -15,7 +15,7 @@ export default {
       iconClass += ' float-right';
     }
 
-    if (binding.modifiers.right) {
+    if (binding.modifiers.yellow) {
       iconClass += ' text-yellow-400';
     } else {
       iconClass += ' text-green-400';
