@@ -20,10 +20,10 @@
     "js-beautify": "1.7.5",
     "optionator": "0.9.3",
     "pinia": "2.0.16",
-    "semver": "^7.5.3",
+    "semver": "7.5.3",
     "vee-validate": "4.6.2",
     "vue": "3.2.37",
-    "vue-i18n": "^9.2.2",
+    "vue-i18n": "9.2.2",
     "vue-router": "4.1.2",
     "word-wrap": "1.2.3"
   },
