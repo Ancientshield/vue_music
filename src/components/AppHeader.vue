@@ -51,6 +51,9 @@ export default {
   name: 'AppHeader',
   computed: {
     ...mapStores(useModalStore, useUserStore),
+    currentLocale() {
+      return this.$i18n.locale === 'fr' ? 'French' : 'English';
+    },
   },
   methods: {
     toggleAuthModal() {
