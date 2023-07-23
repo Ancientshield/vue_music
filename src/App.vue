@@ -4,9 +4,9 @@
 
   <!-- distructure a v-slot properity for an Object called Component -->
   <router-view v-slot="{ Component }">
-    <transition name="fade" mode="out-in">
-      <component :is="Component"></component>
-    </transition>
+    <!-- <transition name="fade" mode="out-in"> -->
+    <component :is="Component"></component>
+    <!-- </transition> -->
   </router-view>
 
   <!-- Player -->
