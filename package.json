@@ -6,9 +6,10 @@
     "build": "vite build",
     "preview": "vite preview --port 4173",
     "test:unit": "vitest --environment jsdom --ui",
-    "test:e2e": "start-server-and-test preview http://localhost:4173/ 'cypress open --e2e'",
+    "test:e2e": "start-server-and-test preview http://localhost:4173/ 'cypress open'",
     "test:e2e:ci": "start-server-and-test preview http://localhost:4173/ 'cypress run --e2e'",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@vee-validate/rules": "^4.6.2",
