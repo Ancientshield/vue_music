@@ -10,7 +10,7 @@
       <button type="button" @click.prevent="toggleAudio">
         <i
           class="fa text-gray-500 text-xl"
-          :class="{ 'fa-play': !playing, 'fa-pause': !playing }"
+          :class="{ 'fa-play': !playing, 'fa-pause': playing }"
         ></i>
       </button>
       <!-- Current Position -->
