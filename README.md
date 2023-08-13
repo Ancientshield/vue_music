@@ -1,6 +1,6 @@
 # vue_music
 
-#### [This is a project use Vue, Tailwind CSS, Pinia and Firebase deploy on Vercel.](https://music-example-tau-six.vercel.app/)
+#### [This is a project use Vue, Tailwind CSS, Pinia and Firebase deploy on Vercel.](https://vue-music-o1x0n3zc0-ancientshield.vercel.app/)
 
 
 ## Recommended IDE Setup
