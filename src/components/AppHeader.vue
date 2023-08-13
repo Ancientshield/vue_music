@@ -12,9 +12,9 @@
       <div class="flex flex-grow items-center">
         <!-- Primary Navigation -->
         <ul class="flex flex-row mt-1">
-          <!-- <li>
-            <router-link class="px-2 text-white" to="/about">About</router-link>
-          </li> -->
+          <li>
+            <!-- <router-link class="px-2 text-white" to="/about">About</router-link> -->
+          </li>
           <!-- Navigation Links -->
           <li v-if="!userStore.userLoggedIn">
             <a class="px-2 text-white" href="#" @click.prevent="toggleAuthModal">

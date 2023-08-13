@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
-import About from '../views/About.vue';
+// import About from '../views/About.vue';
 import Manage from '../views/Manage.vue';
 import useUserStore from '../stores/user.js';
 import Song from '../views/Song.vue';
@@ -11,11 +11,11 @@ const routes = [
     path: '/',
     component: Home,
   },
-  {
-    name: 'about',
-    path: '/about',
-    component: About,
-  },
+  // {
+  //   name: 'about',
+  //   path: '/about',
+  //   component: About,
+  // },
   {
     name: 'manage',
     // alias: 'manage',
@@ -36,7 +36,7 @@ const routes = [
   {
     name: 'song',
     path: '/song/:id',
-    component: Song
+    component: Song,
   },
   {
     path: '/:catchAll(.*)*',
