@@ -13,11 +13,12 @@
   },
   "dependencies": {
     "@vee-validate/rules": "^4.6.2",
-    "firebase": "^8.10.1",
+    "firebase": "^8.6.8",
     "howler": "^2.2.3",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.16",
     "vee-validate": "^4.6.2",
+    "vercel": "^31.2.3",
     "vue": "^3.2.37",
     "vue-i18n": "^9.1.10",
     "vue-router": "^4.1.2"
@@ -29,7 +30,7 @@
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/test-utils": "^2.0.2",
     "autoprefixer": "^10.4.7",
-    "cypress": "^10.11.0",
+    "cypress": "^4.2.0",
     "eslint": "^8.5.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-vue": "^9.0.0",
