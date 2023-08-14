@@ -9,11 +9,11 @@
       <div class="container mx-auto flex items-center">
         <!-- Play/Pause Button -->
         <button
-          @click.prevent="!current_song.modified_name ? newSong(song) : toggleAudio()"
+          @click.prevent="newSong(song)"
           type="button"
           class="z-50 h-24 w-24 text-3xl bg-white text-black rounded-full focus:outline-none"
         >
-          <i class="fas" :class="{ 'fa-play': !playing, 'fa-pause': playing }"></i>
+          <i class="fas" :class="{ 'fa-play': !playing, 'fa-step-backward': playing }"></i>
         </button>
         <div class="z-50 text-left ml-8">
           <!-- Song Info -->
@@ -146,7 +146,7 @@ export default {
     this.getComments();
   },
   methods: {
-    ...mapActions(usePlayerStore, ['newSong', 'toggleAudio']),
+    ...mapActions(usePlayerStore, ['newSong']),
     async addComment(values, { resetForm }) {
       this.comment_in_submission = true;
       this.comment_show_alert = true;
